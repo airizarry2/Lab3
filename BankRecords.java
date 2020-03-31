@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 //Author: Anthony Irizarry
@@ -28,7 +27,7 @@ public class BankRecords {
 	private String region;
 	private double income;
 	private String married;
-	private int children;
+	private String children;
 	private String car;
 	private String save_act;
 	private String current_act;
@@ -85,11 +84,11 @@ public class BankRecords {
 	}
 	
 	//Children getter and setter
-	public int getChildren() {
+	public String getChildren() {
 		return this.children;
 	}
 	
-	public void setChildren(int children) {
+	public void setChildren(String children) {
 		this.children=children;
 	}
 	
@@ -185,7 +184,7 @@ public class BankRecords {
 			robjs[idx].setRegion(rowData.get(3));
 			robjs[idx].setIncome(Double.parseDouble(rowData.get(4)));
 			robjs[idx].setMarried(rowData.get(5));
-			robjs[idx].setChildren(Integer.parseInt(rowData.get(6)));
+			robjs[idx].setChildren((rowData.get(6)));
 			robjs[idx].setCar(rowData.get(7));
 			robjs[idx].setSave_act(rowData.get(8));
 			robjs[idx].setCurrent_act(rowData.get(9));
