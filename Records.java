@@ -1,6 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.lang.Math; 
 
 public class Records extends BankRecords{
 	
@@ -9,7 +10,7 @@ public class Records extends BankRecords{
 
 public Records() {
 	try {
-		fw = new FileWriter("bankrecords.txt");
+		fw = new FileWriter("C:\\Users\\junie\\eclipse-workspace\\Lab2_AI\\bankrecords.txt");
 
 	} catch (IOException e) {
 		e.printStackTrace();
@@ -56,12 +57,19 @@ Arrays.sort(robjs, new SexComparator());
 			 
 		// display resulting averages to console and to file
 		 
-		System.out.println("Avg inc. for Females: $" + (femInc/femCt));
-		System.out.println("Avg inc. for Females: $" + (maleInc/maleCt));
-
+		double femAVIncome = femInc/femCt;
+		double maleAVIncome= maleInc/maleCt;
+		
+		
+		
+		System.out.print("Avg inc. for Females: femAVIncome= $");
+		System.out.print(Math.round(femAVIncome));
+		System.out.print("\nAvg inc. for Males: maleAVIncome= $");
+		System.out.print(Math.round(maleAVIncome));
+		
 		try {
-			fw.write("Avg inc. for Females: $" + (femInc/femCt) );
-			fw.write("Avg inc. for Males: $" + (maleInc/maleCt));
+			fw.write("Avg inc. for Females: $" + Math.round(femAVIncome) );
+			fw.write("\nAvg inc. for Males: $" + Math.round(maleAVIncome));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -81,7 +89,7 @@ private static void femsComp() {
 	
 	System.out.println("\nNumber of Females that have a Mortgage and Savings Account: " + femMS);
 	try {
-		fw.write("Number of Females that have a Mortgage and Savings Account: " + femMS);
+		fw.write("\nNumber of Females that have a Mortgage and Savings Account: " + femMS);
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
@@ -96,23 +104,23 @@ private static void malesComp() {
 	int male=0;
 	
 	for (int i = 0; i < robjs.length; i++)
-		if(robjs[i].getSex().equals("MALE") && robjs[i].getCar().equals("YES")&& robjs[i].getRegion().equals("SUBURBAN") ) {
+		if(robjs[i].getSex().equals("MALE") && robjs[i].getCar().equals("YES")&& robjs[i].getRegion().equals("SUBURBAN")&& robjs[i].getChildren().equals("1") ) {
 			++male;
 		}
-		else if(robjs[i].getSex().equals("MALE") && robjs[i].getCar().equals("YES") && robjs[i].getRegion().equals("TOWN")){
+		else if(robjs[i].getSex().equals("MALE") && robjs[i].getCar().equals("YES") && robjs[i].getRegion().equals("TOWN")&& robjs[i].getChildren().equals("1")){
 		++male;
 	}
-	    else if(robjs[i].getSex().equals("MALE") && robjs[i].getCar().equals("YES") && robjs[i].getRegion().equals("RURAL")){
+	    else if(robjs[i].getSex().equals("MALE") && robjs[i].getCar().equals("YES") && robjs[i].getRegion().equals("RURAL")&& robjs[i].getChildren().equals("1")){
 			++male;
 		}
-	    else if(robjs[i].getSex().equals("MALE") && robjs[i].getCar().equals("YES") && robjs[i].getRegion().equals("INNER_CITY")){
+	    else if(robjs[i].getSex().equals("MALE") && robjs[i].getCar().equals("YES") && robjs[i].getRegion().equals("INNER_CITY") && robjs[i].getChildren().equals("1")){
 			++male;
 		}
 	
 	System.out.println("\nNumber of Males that have both a car and 1 Child per location:" + male);
 	
 	try {
-		fw.write("Number of Males that have both a car and 1 Child per location: " + male);
+		fw.write("\nNumber of Males that have both a car and 1 Child per location: " + male);
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
