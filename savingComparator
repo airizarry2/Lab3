@@ -1,0 +1,11 @@
+import java.util.Comparator;
+
+public class savingComparator implements Comparator<BankRecords>{
+	 
+	@Override
+	public int compare(BankRecords o1, BankRecords o2) {
+	// use compareTo to compare strings
+	int result = o1.getSave_act().compareTo(o2.getSave_act());
+	return result;
+	}
+}
